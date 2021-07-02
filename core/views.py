@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Testimonial, UniversityReview, School
-from rest_framework import permissions, serializers
+from rest_framework import permissions
 from rest_framework.generics import ListCreateAPIView, ListAPIView, CreateAPIView
 from .serializers import TestimonialSerializer, UniversityReviewSerializer
 
