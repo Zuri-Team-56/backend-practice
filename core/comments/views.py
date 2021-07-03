@@ -1,13 +1,15 @@
 from django.shortcuts import render
 from django.http import Http404
 
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+
 from rest_framework.response import Response
 from rest_framework import status
 
 from .serializers import CommentSerializer
 from core.models import Comment
+from core.permissions import IsOwnerOrReadOnly
 
 
 class CommentList(ListCreateAPIView):
@@ -34,6 +36,9 @@ class CommentDetail(RetrieveUpdateDestroyAPIView):
         if self.request.method == 'GET':
             permission_classes = [AllowAny]
         else:
-            permission_classes = [IsAuthenticated]
+            permission_classes = [IsAdminUser, IsOwnerOrReadOnly]
         return [permission() for permission in permission_classes]
-    
+
+
+
+

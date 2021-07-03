@@ -25,7 +25,7 @@ class Article(models.Model): # Create new post model
 """COMMENT MODEL"""
 class Comment(models.Model): # Create new course model
 
-    article = models.ForeignKey(Article, related_name="comment", on_delete=models.CASCADE)
+    article = models.ForeignKey(Article, related_name='article_title', on_delete=models.CASCADE)
     commenter = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()
     date = models.DateField()
@@ -39,7 +39,7 @@ class Comment(models.Model): # Create new course model
 
 """SCHOOL MODEL"""
 class School(models.Model):
-    #user = models.ForeignKey('auth.User', on_delete=models.SET_NULL, null=True, blank=True)
+
     school_name = models.CharField(max_length=200, null=True, blank=True)
     is_affiliated = models.BooleanField(null=True, blank=True, default=True)
     overview = models.CharField(max_length=255, null=True, blank=True)

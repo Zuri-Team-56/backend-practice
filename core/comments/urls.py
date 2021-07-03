@@ -6,7 +6,7 @@ app_name = 'comments'
 
 urlpatterns = [
     path('', views.CommentList.as_view(), name='comment_list'),
-    path('<pk>', views.CommentDetail.as_view(), name='comment_detail'),
+    path('<pk>/', views.CommentDetail.as_view(), name='comment_detail'),
 
 ]
 
