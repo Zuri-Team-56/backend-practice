@@ -23,14 +23,14 @@
 
 from rest_framework import viewsets
 
-from .serializers import StudentAccountSerializer # CareerQuestionSerializer
-from .models import StudentAccount # CareerQuestion,
+from .serializers import StudentAccountSerializer, CareerQuestionSerializer
+from .models import StudentAccount, CareerQuestion
 
 
 class StudentAccountViewSet(viewsets.ModelViewSet):
     queryset = StudentAccount.objects.all().order_by('user')
     serializer_class = StudentAccountSerializer
 
-# class CareerQuestionViewSet(viewsets.ModelViewSet):
-#     queryset = CareerQuestion.objects.all().order_by('question')
-#     serializer_class = CareerQuestionSerializer
+class CareerQuestionViewSet(viewsets.ModelViewSet):
+    queryset = CareerQuestion.objects.all().order_by('question')
+    serializer_class = CareerQuestionSerializer

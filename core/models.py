@@ -17,7 +17,7 @@ class StudentAccount(models.Model):
         return self.user
 
 class CareerQuestion(models.Model):
-    question = models.TextField(max_length=200)
+    question = models.CharField(max_length=200)
     description = models.TextField(max_length=255)
 
     def __str__(self):
