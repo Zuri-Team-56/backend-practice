@@ -25,11 +25,17 @@ from rest_framework import viewsets
 
 from .serializers import StudentAccountSerializer, CareerQuestionSerializer, CareerQuestionAnswerSerializer, SavedSchoolSerializer
 from .models import SavedSchool, StudentAccount, CareerQuestion, CareerQuestionAnswer, SavedSchool
-
+from rest_framework.permissions import IsAuthenticated
 
 class StudentAccountViewSet(viewsets.ModelViewSet):
     queryset = StudentAccount.objects.all().order_by('user')
     serializer_class = StudentAccountSerializer
+
+# class AuthenticatedStudentAccountViewSet(viewsets.ModelViewSet):
+#     serializer_class = StudentAccountSerializer
+#     permission_classes = [IsAuthenticated]
+#     queryset = StudentAccount.objects.all()
+
 
 class CareerQuestionViewSet(viewsets.ModelViewSet):
     queryset = CareerQuestion.objects.all().order_by('question')

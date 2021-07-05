@@ -28,7 +28,7 @@ class CareerQuestion(models.Model):
 class CareerQuestionAnswer(models.Model):
     question = models.CharField(max_length=255)
     student = models.CharField(max_length=255)
-    answer = models.TextField(max_length=255, null=True)
+    answer = models.TextField(max_length=255, null=True)  # This needs to be a foreignkey
 
     def __str__(self):
         return self.question
