@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 GENDER = (
@@ -8,7 +9,8 @@ GENDER = (
 
 
 class StudentAccount(models.Model):
-    user = models.CharField(max_length=200)
+    # user = models.CharField(max_length=200)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     telephone = models.CharField(max_length=255)
     mobile = models.CharField(max_length=255)
     gender = models.CharField(max_length=50, choices=GENDER)
