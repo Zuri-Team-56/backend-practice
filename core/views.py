@@ -23,8 +23,8 @@
 
 from rest_framework import viewsets
 
-from .serializers import StudentAccountSerializer, CareerQuestionSerializer
-from .models import StudentAccount, CareerQuestion
+from .serializers import StudentAccountSerializer, CareerQuestionSerializer, CareerQuestionAnswerSerializer, SavedSchoolSerializer
+from .models import SavedSchool, StudentAccount, CareerQuestion, CareerQuestionAnswer, SavedSchool
 
 
 class StudentAccountViewSet(viewsets.ModelViewSet):
@@ -34,3 +34,11 @@ class StudentAccountViewSet(viewsets.ModelViewSet):
 class CareerQuestionViewSet(viewsets.ModelViewSet):
     queryset = CareerQuestion.objects.all().order_by('question')
     serializer_class = CareerQuestionSerializer
+
+class CareerQuestionAnswerViewSet(viewsets.ModelViewSet):
+    queryset = CareerQuestionAnswer.objects.all().order_by('question')
+    serializer_class = CareerQuestionAnswerSerializer
+
+class SavedSchoolViewSet(viewsets.ModelViewSet):
+    queryset = SavedSchool.objects.all().order_by('school')
+    serializer_class = SavedSchoolSerializer

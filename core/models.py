@@ -22,3 +22,18 @@ class CareerQuestion(models.Model):
 
     def __str__(self):
         return self.question
+
+class CareerQuestionAnswer(models.Model):
+    question = models.CharField(max_length=255)
+    student = models.CharField(max_length=255)
+    answer = models.TextField(max_length=255, null=True)
+
+    def __str__(self):
+        return self.question
+
+class SavedSchool(models.Model):
+    student = models.CharField(max_length=255)
+    school = models.CharField(max_length=255, null=True)
+
+    def __str__(self):
+        return self.school
