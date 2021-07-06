@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from core.models import Scholarship
+from .models import Scholarship
 
 
 class ScholarshipSerializer(serializers.ModelSerializer):
@@ -11,21 +11,12 @@ class ScholarshipSerializer(serializers.ModelSerializer):
             'pk',
             'name',
             'slug',
-            'donor',
-            'image',
             'description',
-            'institution',
-            'course_name',
-            'funding',
-            'degree_level',
-            'amount',
-            'deadline',
+            'image',
             'requirements',
-            'date_published',
-            'contact',
-            'telephone',
-            'email',
+            'institution',
             'website',
+            'date',
         ]
         extra_kwargs = {
             'image': {'required': False}

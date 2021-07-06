@@ -6,7 +6,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from rest_framework.response import Response
 from rest_framework import status
 
-from core.models import Article
+from .models import Article
 from .serializers import ArticleSerializer
 
 

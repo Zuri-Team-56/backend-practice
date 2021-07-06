@@ -1,5 +1,5 @@
 from rest_framework import permissions
-from .models import Comment
+from core.comments.models import Comment
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
 

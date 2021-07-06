@@ -8,8 +8,8 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from .serializers import CommentSerializer
-from core.models import Comment
-from core.permissions import IsOwnerOrReadOnly
+from .models import Comment
+from .permissions import IsOwnerOrReadOnly
 
 
 class CommentList(ListCreateAPIView):

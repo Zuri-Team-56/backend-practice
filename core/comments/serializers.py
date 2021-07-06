@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from core.models import Comment
+from .models import Comment
 
 
 class CommentSerializer(serializers.ModelSerializer):
@@ -9,7 +9,7 @@ class CommentSerializer(serializers.ModelSerializer):
         model = Comment
         fields = [
             'pk',
-            'article',
+            'articlename',
             'commenter',
             'body',
             'date',

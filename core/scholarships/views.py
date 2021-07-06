@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from .serializers import ScholarshipSerializer
-from core.models import Scholarship
+from .models import Scholarship
 
 
 class ScholarshipList(ListCreateAPIView):

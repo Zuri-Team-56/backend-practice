@@ -10,3 +10,4 @@ urlpatterns = [
     path('<slug:slug>', views.ScholarshipDetail.as_view(), name='detail'),
     
 ]
+urlpatterns = format_suffix_patterns(urlpatterns)
