@@ -2,26 +2,11 @@ from django.db.models.query import QuerySet
 from rest_framework import serializers
 from .models import SavedSchool, StudentAccount
 from django.contrib.auth.models import User
-from .models import CareerQuestion
+from .models import CareerQuestion, CareerQuestionOption
 from .models import CareerQuestionAnswer
-from .models import SavedSchool
+from .models import SavedScholarship, SavedCourse
 
 
-# class UserSerializer(serializers.HyperlinkedModelSerializer):
-#     class Meta:
-#         model = User
-#         fields = ('__all__')
-
-# class StudentAccountSerializer(serializers.HyperlinkedModelSerializer):
-#     user_obj = User.objects.all()
-
-#     user = serializers.HyperlinkedRelatedField(
-#         view_name='user-detail',
-#         queryset = user_obj
-#     )
-#     class Meta:
-#         model = StudentAccount
-#         fields = ('__all__')
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -51,7 +36,22 @@ class CareerQuestionAnswerSerializer(serializers.HyperlinkedModelSerializer):
         model = CareerQuestionAnswer
         fields = ('__all__')
 
+class CareerQuestionOptionSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = CareerQuestionOption
+        fields = ('__all__')
+
 class SavedSchoolSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = SavedSchool
+        fields = ('__all__')
+
+class SavedCourseSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = SavedCourse
+        fields = ('__all__')
+
+class SavedScholarshipSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = SavedScholarship
         fields = ('__all__')

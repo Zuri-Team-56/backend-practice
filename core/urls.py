@@ -18,7 +18,9 @@ router.register(r'careerquestions', views.CareerQuestionViewSet)
 router.register(r'careerquestionanswers', views.CareerQuestionAnswerViewSet)
 router.register(r'savedschools', views.SavedSchoolViewSet)
 router.register(r'users', views.UserViewSet)
-
+router.register(r'savedcourses', views.SavedCourseViewSet)
+router.register(r'savedscholarships', views.SavedScholarshipViewSet)
+router.register(r'careerquestionoptions', views.CareerQuestionOptionViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

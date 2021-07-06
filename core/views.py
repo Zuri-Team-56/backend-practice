@@ -1,31 +1,11 @@
-# from django.db.models.query import QuerySet
-# from rest_framework import generics
-# from .models import StudentAccount
-# from .models import CareerQuestion
-# from .serializers import StudentAccountSerializer
-# from .serializers import CareerQuestionSerilalizer
-
-# class ListStudentAccount(generics.ListCreateAPIView):
-#     queryset = StudentAccount.objects.all()
-#     serializer_class = StudentAccountSerializer
-
-# class DetailStudentAccount(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = StudentAccount.objects.all()
-#     serializer_class = StudentAccountSerializer
-
-# class ListCareerQuestion(generics.ListCreateAPIView):
-#     QuerySet = CareerQuestion.objects.all()
-#     serializer_class = CareerQuestionSerilalizer
-
-# class DetailCareerQuestion(generics.RetrieveUpdateDestroyAPIView):
-#     QuerySet = CareerQuestion.objects.all()
-#     serializer_class = CareerQuestionSerilalizer
-
 from rest_framework import viewsets
 from django.contrib.auth.models import User
-from .serializers import StudentAccountSerializer, CareerQuestionSerializer, CareerQuestionAnswerSerializer, SavedSchoolSerializer, UserSerializer
-from .models import SavedSchool, StudentAccount, CareerQuestion, CareerQuestionAnswer, SavedSchool
+from .serializers import StudentAccountSerializer, CareerQuestionSerializer, CareerQuestionAnswerSerializer, SavedSchoolSerializer, UserSerializer, SavedCourseSerializer, SavedScholarshipSerializer, CareerQuestionOptionSerializer
+
+from .models import SavedSchool, StudentAccount, CareerQuestion, CareerQuestionAnswer, SavedSchool, SavedCourse, SavedScholarship, CareerQuestionOption
+
 from rest_framework.permissions import IsAuthenticated
+
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
@@ -36,12 +16,6 @@ class StudentAccountViewSet(viewsets.ModelViewSet):
     queryset = StudentAccount.objects.all().order_by('user')
     serializer_class = StudentAccountSerializer
 
-# class AuthenticatedStudentAccountViewSet(viewsets.ModelViewSet):
-#     serializer_class = StudentAccountSerializer
-#     permission_classes = [IsAuthenticated]
-#     queryset = StudentAccount.objects.all()
-
-
 class CareerQuestionViewSet(viewsets.ModelViewSet):
     queryset = CareerQuestion.objects.all().order_by('question')
     serializer_class = CareerQuestionSerializer
@@ -50,6 +24,19 @@ class CareerQuestionAnswerViewSet(viewsets.ModelViewSet):
     queryset = CareerQuestionAnswer.objects.all().order_by('question')
     serializer_class = CareerQuestionAnswerSerializer
 
+class CareerQuestionOptionViewSet(viewsets.ModelViewSet):
+    queryset = CareerQuestionOption.objects.all().order_by('question')
+    serializer_class = CareerQuestionOptionSerializer
+
 class SavedSchoolViewSet(viewsets.ModelViewSet):
     queryset = SavedSchool.objects.all().order_by('school')
     serializer_class = SavedSchoolSerializer
+
+class SavedCourseViewSet(viewsets.ModelViewSet):
+    queryset = SavedCourse.objects.all().order_by('course')
+    serializer_class = SavedCourseSerializer
+
+class SavedScholarshipViewSet(viewsets.ModelViewSet):
+    queryset = SavedScholarship.objects.all().order_by('scholarship')
+    serializer_class = SavedScholarshipSerializer
+
