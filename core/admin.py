@@ -7,8 +7,8 @@ from core.savedschool.models import SavedSchool
 from core.career_advisory.models import CareerQuestion, CareerQuestionAnswer, CareerQuestionOption
 from core.student.models import StudentAccount
 from core.testimonials.models import Testimonial
-from core.news.models import News, SchoolNews
-from core.school.models import School
+from core.news.models import SchoolNews
+from core.schools.models import School
 from core.reviews.models import Review
 from core.faculty.models import FacultyName
 from core.department.models import DepartmentName
@@ -23,13 +23,20 @@ from core.fees.models import Tuition
    
 
 
-# Register your models here.
+#poshpeck
 class StudentAccountAdmin(admin.ModelAdmin):
     list_display = ['full_name', 'telephone', 'mobile', 'gender']
 
-
+#hezekiah
 admin.site.register(Course)
 admin.site.register(School)
+admin.site.register(StudentAccount,StudentAccountAdmin)
+admin.site.register(CareerQuestion)
+admin.site.register(CareerQuestionAnswer)
+admin.site.register(SavedSchool)
+admin.site.register(SavedScholarship)
+admin.site.register(SavedCourse)
+admin.site.register(CareerQuestionOption)
 
 
 #pauline-banye
@@ -39,25 +46,21 @@ admin.site.register(DepartmentName)
 admin.site.register(FacultyName)
 admin.site.register(Scholarship)
 admin.site.register(SchoolNews)
+admin.site.register(EntryRequirement)
+
 
 #Iconnell
 admin.site.register(Review)
 admin.site.register(Testimonial)
-admin.site.register(EntryRequirement)
+
 
 #Blaise
 admin.site.register(Tuition)
 #admin.site.register(Location)
 
 
-#poshpeck
-admin.site.register(StudentAccount,StudentAccountAdmin)
-admin.site.register(CareerQuestion)
-admin.site.register(CareerQuestionAnswer)
-admin.site.register(SavedSchool)
-admin.site.register(SavedScholarship)
-admin.site.register(SavedCourse)
-admin.site.register(CareerQuestionOption)
+
+
 
 
 
