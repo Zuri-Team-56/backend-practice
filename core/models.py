@@ -10,7 +10,7 @@ GENDER = (
 
 class StudentAccount(models.Model):
     # user = models.CharField(max_length=200)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='student_accounts')
     telephone = models.CharField(max_length=255)
     mobile = models.CharField(max_length=255)
     gender = models.CharField(max_length=50, choices=GENDER)

@@ -22,10 +22,15 @@
 #     serializer_class = CareerQuestionSerilalizer
 
 from rest_framework import viewsets
-
-from .serializers import StudentAccountSerializer, CareerQuestionSerializer, CareerQuestionAnswerSerializer, SavedSchoolSerializer
+from django.contrib.auth.models import User
+from .serializers import StudentAccountSerializer, CareerQuestionSerializer, CareerQuestionAnswerSerializer, SavedSchoolSerializer, UserSerializer
 from .models import SavedSchool, StudentAccount, CareerQuestion, CareerQuestionAnswer, SavedSchool
 from rest_framework.permissions import IsAuthenticated
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
 
 class StudentAccountViewSet(viewsets.ModelViewSet):
     queryset = StudentAccount.objects.all().order_by('user')
