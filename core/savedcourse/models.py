@@ -1,5 +1,6 @@
 from core.student.models import StudentAccount
 from core.courses.models import Course
+
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.deletion import CASCADE

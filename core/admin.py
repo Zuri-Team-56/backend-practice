@@ -27,9 +27,6 @@ from core.fees.models import Tuition
 class StudentAccountAdmin(admin.ModelAdmin):
     list_display = ['full_name', 'telephone', 'mobile', 'gender']
 
-#hezekiah
-admin.site.register(Course)
-admin.site.register(School)
 admin.site.register(StudentAccount,StudentAccountAdmin)
 admin.site.register(CareerQuestion)
 admin.site.register(CareerQuestionAnswer)
@@ -47,6 +44,11 @@ admin.site.register(FacultyName)
 admin.site.register(Scholarship)
 admin.site.register(SchoolNews)
 admin.site.register(EntryRequirement)
+
+
+#hezekiah
+admin.site.register(Course)
+admin.site.register(School)
 
 
 #Iconnell
