@@ -4,7 +4,10 @@ from .models import CareerQuestion
 from .models import CareerQuestionAnswer
 from .models import SavedSchool
 
-admin.site.register(StudentAccount)
+class StudentAccountAdmin(admin.ModelAdmin):
+    list_display = ['full_name', 'telephone', 'mobile', 'gender']
+
+admin.site.register(StudentAccount,StudentAccountAdmin)
 admin.site.register(CareerQuestion)
 admin.site.register(CareerQuestionAnswer)
 admin.site.register(SavedSchool)

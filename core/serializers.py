@@ -6,6 +6,11 @@ from .models import SavedSchool
 
 
 class StudentAccountSerializer(serializers.HyperlinkedModelSerializer):
+    user = serializers.HyperlinkedRelatedField(
+        view_name='user-detail',
+        lookup_field='username',
+        read_only=True
+    )
     class Meta:
         model = StudentAccount
         fields = ('__all__')

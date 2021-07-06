@@ -15,8 +15,12 @@ class StudentAccount(models.Model):
     mobile = models.CharField(max_length=255)
     gender = models.CharField(max_length=50, choices=GENDER)
 
+    @property
+    def full_name(self):
+        return f"{self.user.first_name} {self.user.last_name}"
+
     def __str__(self):
-        return self.user
+        return self.user.first_name
 
 class CareerQuestion(models.Model):
     question = models.CharField(max_length=200)
