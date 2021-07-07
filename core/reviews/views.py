@@ -2,7 +2,7 @@ from core.reviews.serializers import ReviewSerializer
 from rest_framework.generics import ListCreateAPIView
 from .models import Review
 from rest_framework import permissions
-from core.school.models import School
+from core.schools.models import School
 
 class ReviewAPIListView(ListCreateAPIView):
     serializer_class = ReviewSerializer

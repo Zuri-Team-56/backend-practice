@@ -9,7 +9,7 @@ class FacultyName(models.Model): # Create new faculty model
 
     name = models.CharField(max_length=150, help_text='Enter Name of Faculty', blank=False, unique=True)
     slug = AutoSlugField(populate_from='name', blank=True, editable=True)
-    name_of_school = models.ForeignKey(School, on_delete=models.CASCADE, null=True, blank=True)
+    name_of_school = models.ForeignKey(School, on_delete=models.CASCADE, null=True, blank=True, related_name="faculties")
     #body = models.TextField()
     
     

@@ -35,7 +35,7 @@ urlpatterns = [
     path('requirement/', include('core.requirement.urls')),
     path('reviews/', include('core.reviews.urls')),
     path('savedcourse/', include('core.savedcourse.urls')),
-    path('savedscholarships/', include('core.savedscholarships.urls')),
+    path('savedscholarship/', include('core.savedscholarship.urls')),
     path('savedschool/', include('core.savedschool.urls')),
     path('schools/', include('core.schools.urls')),
     path('news/', include('core.news.urls')),

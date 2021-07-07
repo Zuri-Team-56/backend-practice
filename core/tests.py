@@ -1,4 +1,6 @@
-from .models import StudentAccount
+from core.student.models import StudentAccount
+from unittest import TestCase
+
 
 class StudentAccountModelTest(TestCase):
 
@@ -7,6 +9,7 @@ class StudentAccountModelTest(TestCase):
         StudentAccount.objects.create(user='John', telephone='a telephone here', mobile='a mobile', gender='sex')
    
     def test_user_content(self):
+        print(StudentAccounts.objects.all())
         studentaccount = StudentAccount.objects.get(id=1)
         expected_object_name = f'{studentaccount.user}'
         self.assertEqual(expected_object_name, 'John')
