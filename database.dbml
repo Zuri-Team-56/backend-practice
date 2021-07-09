@@ -1,0 +1,198 @@
+Project school_scout {
+  database_type: 'PostgreSQL'
+  Note: '''
+    School Scout is a web application that helps students 
+    (aspiring graduates/undergraduates) find schools of their choice
+  '''
+}
+
+
+Table user {
+    id integer [primary key, note: 'Auto added and auto-updated']
+    username varchar
+    email email
+    first_name varchar
+    last_name varchar
+    password password
+}
+
+
+Table user_testimonial {
+    id integer [primary key, note: 'Auto added and auto-updated']
+    user integer
+    testimonial varchar
+}
+Ref: user_testimonial.user > user.id
+
+
+Enum gender {
+  Male
+  Female
+  Other
+}
+
+
+Table student {
+    id integer [primary key, note: 'Auto added and auto-updated']
+    user integer
+    telephone varchar
+    mobile varchar
+    gender gender
+}
+Ref: student.user - user.id
+
+
+Table career_question {
+    id integer [primary key, note: 'Auto added and auto-updated']
+    question varchar
+    description varchar
+}
+
+
+Table career_question_answer {
+    id integer [primary key, note: 'Auto added and auto-updated']
+    question integer
+    student integer
+    answer varchar
+}
+Ref: career_question_answer.question > career_question.id
+Ref: career_question_answer.student > student.id
+
+
+Table school {
+    id integer [primary key, note: 'Auto added and auto-updated']
+    user integer
+    name varchar
+    is_affiliate boolean
+    overview varchar
+    location varchar
+    culture varchar
+    image file
+    school_ranking integer
+    website link
+    number_of_staff integer
+    telephone varchar
+    mobile varchar
+    email email
+    number_of_students integer
+    has_accomodation boolean
+    min_tuition integer
+    max_tuition integer
+}
+Ref: school.user - user.id
+
+
+Table school_review {
+    id integer [primary key, note: 'Auto added and auto-updated']
+    student integer
+    school integer
+    review varchar
+    rating integer
+}
+Ref: school_review.student > student.id
+Ref: school_review.school > school.id
+
+
+Table saved_school {
+    id integer [primary key, note: 'Auto added and auto-updated']
+    student integer
+    school integer
+}
+Ref: saved_school.student > student.id
+Ref: saved_school.school > school.id
+
+
+Enum program_options {
+  Doctorate
+  Masters
+  Bachelors
+  Diploma
+}
+
+
+Enum study_options {
+  Fulltime
+  Parttime
+  Both
+}
+
+
+Table course {
+    id integer [primary key, note: 'Auto added and auto-updated']
+    name varchar
+    school integer
+    tuition decimal
+    requirements varchar
+    program_option program_options
+    study_option study_options
+}
+Ref: course.school - school.id
+
+
+Enum scholarship_type {
+  Full
+  Partial
+}
+
+
+Table scholarship {
+    id integer [primary key, note: 'Auto added and auto-updated']
+    name varchar
+    donor varchar
+    school integer
+    course integer
+    description varchar
+    amount decimal
+    duration varchar
+    type scholarship_type
+    website link
+    contact_person varchar
+    telephone varchar
+    email email
+    requirements varchar
+    image file
+}
+Ref: scholarship.school - school.id
+Ref: scholarship.course - course.id
+
+
+Table saved_scholarship {
+    id integer [primary key, note: 'Auto added and auto-updated']
+    student integer
+    scholarship integer
+}
+Ref: saved_scholarship.student > student.id
+Ref: saved_scholarship.scholarship > scholarship.id
+
+
+Table article {
+    id integer [primary key, note: 'Auto added and auto-updated']
+    author integer
+    title varchar
+    body varchar
+    date timestamp
+    image file
+}
+Ref: article.author > user.id
+
+
+Table article_comment {
+    id integer [primary key, note: 'Auto added and auto-updated']
+    commenter integer
+    article integer
+    comment varchar
+    date timestamp
+}
+Ref: article_comment.commenter > user.id
+Ref: article_comment.article > article.id
+
+
+Table message {
+    id integer [primary key, note: 'Auto added and auto-updated']
+    sender integer
+    receiver integer
+    body varchar
+    date timestamp
+}
+Ref: message.sender > user.id
+Ref: message.receiver > user.id
