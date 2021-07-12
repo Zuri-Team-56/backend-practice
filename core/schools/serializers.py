@@ -32,7 +32,7 @@ class SchoolSerializer(serializers.ModelSerializer):
             #'school_news',
             #'saved_school'
             'website',
-            'courses'    #ForeignKeyRelatedName
+            #'courses'    #ForeignKeyRelatedName
       
         ]
         extra_kwargs = {
