@@ -44,7 +44,7 @@ urlpatterns = [
     path('savedschool/', include('core.savedschool.urls')),
     path('scholarships/', include('core.scholarships.urls')),  
     path('schools/', include('core.schools.urls')),
-    #path('student/', include('core.student.urls')),
+    path('student/', include('core.student.urls')),
     path('testimonials/', include('core.testimonials.urls')),
     path('programs/', include('core.programs.urls')),          
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
