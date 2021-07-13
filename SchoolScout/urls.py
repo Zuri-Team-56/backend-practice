@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+from core import careerquestionoption
 from django.contrib import admin
 from django.urls import path, include
 from drf_spectacular.views import SpectacularSwaggerView, SpectacularAPIView
@@ -27,9 +28,15 @@ urlpatterns = [
     path('core/', include('core.urls')),
 
     path('auth/', include('user_auth.urls')),
+
+    path('api-auth/', include('rest_framework.urls')),
+
+    path('api/v1/rest-auth/', include('rest_auth.urls')), 
+
+    path('api/v1/rest-auth/registration/', include('rest_auth.registration.urls')),
     
     # path('articles/', include('core.articles.urls')),
-    # path('advisor/', include('core.advisor.urls')), 
+    path('advisor/', include('core.advisor.urls')), 
     # path('comments/', include('core.comments.urls')),
     # path('courses/', include('core.courses.urls')),
     # path('department/', include('core.department.urls')),
@@ -39,12 +46,14 @@ urlpatterns = [
     # path('news/', include('core.news.urls')),
     # path('requirement/', include('core.requirement.urls')),
     # path('reviews/', include('core.reviews.urls')),
-    # path('savedcourse/', include('core.savedcourse.urls')),
-    # path('savedscholarship/', include('core.savedscholarship.urls')),
-    # path('savedschool/', include('core.savedschool.urls')),
+    path('savedcourse/', include('core.savedcourse.urls')),
+    path('savedscholarship/', include('core.savedscholarship.urls')),
+    path('savedschool/', include('core.savedschool.urls')),
+    path('careerquestionoption/', include('core.careerquestionoption.urls')),
+    path('careerquestionanswer/', include('core.careerquestionanswer.urls')),
     # path('scholarships/', include('core.scholarships.urls')),  
     # path('schools/', include('core.schools.urls')),
-    # path('student/', include('core.student.urls')),
+    path('student/', include('core.student.urls')),
     # path('testimonials/', include('core.testimonials.urls')),
         
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
