@@ -6,7 +6,10 @@ class TestimonialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Testimonial
         fields = [
-            '__all__',
+            'pk',
+            'image',
+            'testimonial',
+            'date',
         ]
         extra_kwargs = {
             'image': {'required': False}

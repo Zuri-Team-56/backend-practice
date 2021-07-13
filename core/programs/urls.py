@@ -3,7 +3,7 @@ from . import views
 
 
 urlpatterns = [
-     #School Related URLS
+    #School Related URLS
     path('new/', views.CreateProgram.as_view(), name='new'),
     path('', views.GetProgramList.as_view(), name='list'),
     path('update/<slug:slug>/', views.UpdateProgram.as_view(), name='update'),

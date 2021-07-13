@@ -6,7 +6,10 @@ app_name = 'department'
 
 urlpatterns = [
     path('', views.DepartmentList.as_view(), name='list'),
-    path('<slug:slug>/', views.DepartmentDetail.as_view(), name='detail'),
+    path('<slug:slug>', views.DepartmentDetail.as_view(), name='detail'),
+
+    # path('<slug:slug>/department', views.DepartmentList.as_view(), name='list'),
+    # path('<slug:slug>/department/<slug:slug>', views.DepartmentDetail.as_view(), name='detail'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

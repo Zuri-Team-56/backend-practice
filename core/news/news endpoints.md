@@ -2,7 +2,7 @@
 
 
 ## LIST ENDPOINT:
-- URL: http://127.0.0.1:8000/news
+- URL: http://schoolscoutapp.heroku.com/news
 
 This endpoint is responsible for retrieving the list of school news and allowing admins to create school news.
 
@@ -40,7 +40,7 @@ This endpoint is responsible for retrieving the list of school news and allowing
 #
 
 ## DETAIL ENDPOINT:
-- URL: http://127.0.0.1:8000/news/\<`slug`>
+- URL: http://schoolscoutapp.heroku.com/news/\<`slug`>
 * Note: A `slug` is generated automatically if no input is specified
 
 This endpoint is responsible for retrieving the detail page of school news and allowing admins to edit, update or delete the school news.

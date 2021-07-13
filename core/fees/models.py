@@ -1,4 +1,5 @@
-from core.schools.models import School
+from core.courses.models import Course
+#from core.schools.models import School
 from django.db import models
 from autoslug import AutoSlugField
 
@@ -15,7 +16,7 @@ class Tuition(models.Model):
  
     title = models.CharField(max_length=200, null=True, blank=True)
     slug = AutoSlugField(populate_from='title', blank=True, editable=True)
-    school = models.ForeignKey(School, on_delete=models.CASCADE, related_name="fees")
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="fees")
     program = models.CharField(max_length=200, choices=PROGRAM_TYPES)
     description = models.TextField()
     amount = models.DecimalField(verbose_name="Tuition Amount", help_text="Maximum 99999999.99", max_digits=9, decimal_places=2)

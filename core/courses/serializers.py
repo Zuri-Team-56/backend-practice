@@ -2,9 +2,11 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 
 from .models import Course
+from core.fees.serializers import TuitionSerializer
 
+class CourseSerializer(serializers.ModelSerializer):
+    fees = TuitionSerializer(many=True, read_only=True)
 
-class CourseSerializer(serializers.ModelSerializer):    
     class Meta:
         model = Course
         fields = [
@@ -17,8 +19,7 @@ class CourseSerializer(serializers.ModelSerializer):
             'program',
             'name_of_department',
             'school_location',
-            'tuition', 
-            'tution_price',
+            'fees',
             'address',
             'addressState',
             'duration',

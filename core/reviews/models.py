@@ -13,7 +13,7 @@ class Review(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     review = models.TextField(max_length=5000)
     image = models.ImageField(null=True, blank=True, upload_to='images/')
-    sch = models.ForeignKey(School, on_delete=models.CASCADE)
+    sch = models.ForeignKey(School, related_name='reviews', on_delete=models.CASCADE)
     educational_status = models.CharField(max_length=150, blank=False)
     rating = models.IntegerField(default=0, 
         validators=[

@@ -8,8 +8,10 @@ class ProgramSerializer(serializers.ModelSerializer):
         model = Program
         fields = [
             'pk',
-            'title',
             'name',
+            'title',
+            'type',
             'slug',
             'school',
+            'information',
         ]

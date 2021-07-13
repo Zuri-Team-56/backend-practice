@@ -11,7 +11,7 @@ class TuitionSerializer(serializers.ModelSerializer):
             'pk',
             'title',
             'slug',
-            'school',
+            'course',
             'program',
             'description',
             'amount',

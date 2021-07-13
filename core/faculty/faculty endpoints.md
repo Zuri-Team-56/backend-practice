@@ -2,7 +2,7 @@
 
 
 ##  LIST ENDPOINT:
-- URL: http://127.0.0.1:8000/faculty
+- URL: http://schoolscoutapp.heroku.com/faculty
 
 This endpoint is responsible for retrieving the list of faculties and allowing admins to create new faculties.
 
@@ -31,7 +31,7 @@ This endpoint is responsible for retrieving the list of faculties and allowing a
 #
 
 ## DETAILS ENDPOINT:
-- URL: http://127.0.0.1:8000/faculty/\<`slug`>
+- URL: http://schoolscoutapp.heroku.com/\<`slug`>
 * Note: A `slug` is generated automatically if no input is specified
 
 This endpoint is responsible for retrieving the detail page of a faculty and allowing admins to edit, update or delete the faculty.

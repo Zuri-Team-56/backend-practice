@@ -2,7 +2,7 @@
 
 
 ## LIST ENDPOINT:**
-- URL: http://127.0.0.1:8000/scholarships
+- URL: http://schoolscoutapp.heroku.com/scholarships
 
 This endpoint is responsible for retrieving the list of scholarships and allowing admins to create new scholarships.
 
@@ -49,7 +49,7 @@ This endpoint is responsible for retrieving the list of scholarships and allowin
 #
 
 ## DETAIL ENDPOINT:** 
-- URL: http://127.0.0.1:8000/scholarships/\<`slug`>
+- URL: http://schoolscoutapp.heroku.com/scholarships/\<`slug`>
 * Note: A `slug` is generated automatically if no input is specified
 
 This endpoint is responsible for retrieving the detail page of a scholarships and allowing admins to edit, update or delete the scholarships.

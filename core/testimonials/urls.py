@@ -4,6 +4,6 @@ from core.testimonials import views
 
 urlpatterns = [
 
-    path('testimonials/', views.TestimonialListAPIView.as_view()),
+    path('', views.TestimonialListAPIView.as_view()),
   
 ]

@@ -6,7 +6,7 @@ app_name = 'requirement'
 
 urlpatterns = [
     path('', views.RequirementList.as_view(), name='list'),
-    path('<slug:slug>/', views.RequirementDetail.as_view(), name='detail'),
+    path('<slug:slug>', views.RequirementDetail.as_view(), name='detail'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

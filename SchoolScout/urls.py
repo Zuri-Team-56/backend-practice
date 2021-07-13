@@ -30,15 +30,14 @@ urlpatterns = [
     
     path('articles/', include('core.articles.urls')),
     path('advisor/', include('core.advisor.urls')), 
-    path('comments/', include('core.comments.urls')),
+    path('articles/', include('core.comments.urls')),
     path('courses/', include('core.courses.urls')),
     path('department/', include('core.department.urls')),
     path('faculty/', include('core.faculty.urls')),
     path('fees/', include('core.fees.urls')),
-    # path('location/', include('core.location.urls')),
     path('news/', include('core.news.urls')),
     path('requirement/', include('core.requirement.urls')),
-    path('reviews/', include('core.reviews.urls')),
+    path('schools/', include('core.reviews.urls')),
     path('savedcourse/', include('core.savedcourse.urls')),
     path('savedscholarship/', include('core.savedscholarship.urls')),
     path('savedschool/', include('core.savedschool.urls')),
@@ -46,7 +45,7 @@ urlpatterns = [
     path('schools/', include('core.schools.urls')),
     path('student/', include('core.student.urls')),
     path('testimonials/', include('core.testimonials.urls')),
-    path('programs/', include('core.programs.urls')),          
+    path('programs/', include('core.programs.urls')),      
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
     path('docs/', SpectacularSwaggerView.as_view(template_name='swagger-ui.html', url_name='schema'), name='swagger-ui')
     
@@ -54,7 +53,3 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-# if not settings.DEBUG:
-    # urlpatterns += static('', (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),)
-    # urlpatterns += patterns('', (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),)

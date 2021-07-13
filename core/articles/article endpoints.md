@@ -2,7 +2,7 @@
 
 
 ## LIST ENDPOINT:
-- URL: http://127.0.0.1:8000/articles
+- URL: http://schoolscoutapp.heroku.com/articles
 
 This endpoint is responsible for retrieving the list of articles and allowing admins to create new articles
 
@@ -36,7 +36,7 @@ This endpoint is responsible for retrieving the list of articles and allowing ad
 #
 
 ## DETAIL ENDPOINT:
-- URL: http://127.0.0.1:8000/articles/\<`slug`>
+- URL: http://schoolscoutapp.heroku.com/articles/\<`slug`>
 * Note: A `slug` is generated automatically if no input is specified
 
 This endpoint is responsible for retrieving the detail page of articles and allowing admins to edit, update or delete the articles.
