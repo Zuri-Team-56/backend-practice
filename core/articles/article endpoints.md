@@ -36,7 +36,7 @@ This endpoint is responsible for retrieving the list of articles and allowing ad
 #
 
 ## DETAIL ENDPOINT:
-- URL: http://schoolscoutapp.heroku.com/articles/\<`slug`>
+- URL: http://schoolscoutapp.heroku.com/articles/`slug`
 * Note: A `slug` is generated automatically if no input is specified
 
 This endpoint is responsible for retrieving the detail page of articles and allowing admins to edit, update or delete the articles.

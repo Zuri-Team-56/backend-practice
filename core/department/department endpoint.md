@@ -2,7 +2,7 @@
 
 
 ## LIST ENDPOINT:
-- URL: http://schoolscoutapp.heroku.com/department
+- URL: http://schoolscoutapp.heroku.com/faculty/`slug`/department
 
 This endpoint is responsible for retrieving the list of departments and allowing admins to create new departments.
 
@@ -31,7 +31,7 @@ This endpoint is responsible for retrieving the list of departments and allowing
 #
 
 ## DETAIL ENDPOINT: 
-- URL: http://schoolscoutapp.heroku.com/department/\<`slug`>
+- URL: http://schoolscoutapp.heroku.com/faculty/`slug`/department/`slug`
 * Note: A `slug` is generated automatically if no input is specified
 
 This endpoint is responsible for retrieving the detail page of a department and allowing admins to edit, update or delete the department.

@@ -2,7 +2,7 @@
 
 
 ## LIST ENDPOINT:
-- URL: http://schoolscoutapp.heroku.com/requirement
+- URL: http://schoolscoutapp.heroku.com/schools/`slug`/requirement
 
 This endpoint is responsible for retrieving the list of schoolrequirement and allowing admins to create new school requirements.
 
@@ -34,7 +34,7 @@ This endpoint is responsible for retrieving the list of schoolrequirement and al
 #
 
 ## DETAIL ENDPOINT:
-- URL: http://schoolscoutapp.heroku.com/requirement/\<`slug`>
+- URL: http://schoolscoutapp.heroku.com/schools/`slug`/requirement/`slug`
 * Note: A `slug` is generated automatically if no input is specified
 
 This endpoint is responsible for retrieving the detail page of school requirement and allowing admins to edit, update or delete the school requirement.
