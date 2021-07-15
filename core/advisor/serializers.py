@@ -1,21 +1,22 @@
-
 from rest_framework import serializers
-from django.contrib.auth.models import User
-from .models import CareerQuestion, CareerQuestionOption
-from .models import CareerQuestionAnswer
+from core.advisor.models import CareerQuestion #CareerQuestionAnswer, CareerQuestionOption
 
 
-class CareerQuestionSerializer(serializers.HyperlinkedModelSerializer):
+class CareerQuestionSerializer(serializers.ModelSerializer):
     class Meta:
+        fields = ('__all__')
         model = CareerQuestion
-        fields = ('__all__')
+        
 
-class CareerQuestionAnswerSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = CareerQuestionAnswer
-        fields = ('__all__')
 
-class CareerQuestionOptionSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = CareerQuestionOption
-        fields = ('__all__')
+# class CareerQuestionOptionSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         fields = ('__all__')
+#         model = CareerQuestionOption
+
+
+# class CareerQuestionAnswerSerializer(serializers.ModelSerializer):
+#     student_name = serializers.ReadOnlyField(source='student.username')
+#     class Meta:
+#         fields = ('id', 'question', 'answer', 'student_name')
+#         model = CareerQuestionAnswer

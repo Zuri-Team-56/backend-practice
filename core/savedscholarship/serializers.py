@@ -1,16 +1,12 @@
-from django.db.models.query import QuerySet
 from rest_framework import serializers
-from django.contrib.auth.models import User
-from .models import SavedScholarship
-from core.scholarships.models import Scholarship
+from core.savedscholarship.models import SavedScholarship
 
 
 class SavedScholarshipSerializer(serializers.ModelSerializer):
+    student = serializers.SlugRelatedField(read_only=True, slug_field='slug')
+    scholarship = serializers.SlugRelatedField(read_only=True, slug_field='name')
+
     class Meta:
         model = SavedScholarship
         fields = ('__all__')
-
-class ScholarshipSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Scholarship
-        fields = ('__all__')
+        

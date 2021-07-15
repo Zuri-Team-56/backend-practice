@@ -12,7 +12,7 @@ class Requirements(models.Model):
     )
    
     title = models.CharField(max_length=200, null=True, blank=True)
-    slug = AutoSlugField(populate_from='title', blank=True, editable=True)
+    slug = AutoSlugField(populate_from='title', unique=True, blank=True, editable=True)
     school = models.ForeignKey(School, on_delete=models.CASCADE, related_name="requirement")
     program = models.CharField(max_length=200, choices=PROGRAM_TYPES)
     description = models.TextField(max_length=5000)

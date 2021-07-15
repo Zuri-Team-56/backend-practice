@@ -9,7 +9,7 @@ from autoslug import AutoSlugField
 class Faculty(models.Model): # Create new faculty model
 
     name = models.CharField(max_length=150, help_text='Enter Name of Faculty', blank=False, unique=True)
-    slug = AutoSlugField(populate_from='name', blank=True, editable=True)
+    slug = AutoSlugField(populate_from='name', unique=True, blank=True, editable=True)
     image = models.ImageField(null=True, blank=True, upload_to='images/')
     school = models.ForeignKey(School, on_delete=models.CASCADE, null=True, blank=True, related_name="faculty")
     

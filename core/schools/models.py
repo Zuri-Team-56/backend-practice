@@ -5,8 +5,8 @@ from autoslug import AutoSlugField
 
 """SCHOOL MODEL"""
 class School(models.Model): 
-    name = models.CharField(max_length=200, null=True, blank=True)
-    slug = AutoSlugField(populate_from='name', blank=True, editable=True)
+    name = models.CharField(max_length=200, unique=True, null=True, blank=True)
+    slug = AutoSlugField(populate_from='name', unique=True, blank=True, editable=True)
     overview = models.TextField()
     image = models.FileField(upload_to=None, null=True, blank=True)
     program = models.TextField()
@@ -21,3 +21,5 @@ class School(models.Model):
 
     def __str__(self):
         return self.name
+
+    

@@ -1,13 +1,16 @@
-from rest_framework import viewsets
-from django.contrib.auth.models import User
-from .serializers import SavedScholarshipSerializer
-
-from .models import SavedScholarship
-
-from rest_framework.permissions import IsAuthenticated
+from rest_framework import generics, permissions
+from core.savedscholarship.models import SavedScholarship
+from core.savedscholarship.serializers import SavedScholarshipSerializer
+from .permissions import IsAuthor
 
 
+class SavedScholarshipList(generics.ListCreateAPIView):
+    permission_classes = [IsAuthor, permissions.IsAdminUser]
+    queryset = SavedScholarship.objects.all()
+    serializer_class = SavedScholarshipSerializer
 
-class SavedScholarshipViewSet(viewsets.ModelViewSet):
-    queryset = SavedScholarship.objects.all().order_by('scholarship')
+
+class SavedScholarshipDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthor, permissions.IsAdminUser]
+    queryset = SavedScholarship.objects.all()
     serializer_class = SavedScholarshipSerializer

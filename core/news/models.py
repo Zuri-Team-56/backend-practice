@@ -8,7 +8,7 @@ from core.schools.models import School
 class News(models.Model): # Create school news articles
     
     title = models.CharField(max_length=150, help_text='Enter title', blank=False, unique=True)
-    slug = AutoSlugField(populate_from='title', blank=True, editable=True)
+    slug = AutoSlugField(populate_from='title', unique=True, blank=True, editable=True)
     category = models.CharField(max_length=150, help_text='Enter Name of category', blank=False, unique=True)
     school = models.ForeignKey(School, on_delete=models.CASCADE, related_name="news")
     image = models.ImageField(null=True, blank=True, upload_to='images/')

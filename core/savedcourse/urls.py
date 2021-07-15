@@ -1,13 +1,10 @@
-from django.urls import include, path
-from rest_framework import routers
-from . import views
-
-router = routers.DefaultRouter()
-router.register(r'savedcourses', views.SavedCourseViewSet)
+from django.urls import path
+from core.savedcourse.views import SavedCourseList, SavedCourseDetail
 
 
-GET_OPTIONS = {'get': 'list'}
 
 urlpatterns = [
-    path('', include(router.urls))
+
+    path('<slug:slug>/savedcourse', SavedCourseList.as_view()),
+    path('<slug:slug>/savedcourse/<pk>', SavedCourseDetail.as_view()),
 ]

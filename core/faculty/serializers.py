@@ -6,6 +6,7 @@ from core.department.serializers import DepartmentSerializer
 
 class FacultySerializer(serializers.ModelSerializer):  
     department = DepartmentSerializer(many=True, read_only=True)
+    school = serializers.SlugRelatedField(read_only=True, slug_field='name')
 
     class Meta:
         model = Faculty

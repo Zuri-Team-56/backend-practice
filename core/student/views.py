@@ -1,17 +1,21 @@
-from rest_framework import viewsets
-from django.contrib.auth.models import User
-from .serializers import StudentAccountSerializer, UserSerializer
-
-from .models import  StudentAccount
-
-from rest_framework.permissions import IsAuthenticated
+from rest_framework import generics, permissions
+from core.student.models import StudentAccount
+from core.student.serializers import StudentAccountSerializer
+from .permissions import IsAuthor
 
 
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+class StudentAccountList(generics.ListCreateAPIView):
 
-
-class StudentAccountViewSet(viewsets.ModelViewSet):
-    queryset = StudentAccount.objects.all().order_by('user')
+    permission_classes = (permissions.IsAdminUser,)
+    queryset = StudentAccount.objects.all()
     serializer_class = StudentAccountSerializer
+
+
+class StudentAccountDetail(generics.RetrieveUpdateDestroyAPIView):
+
+    permission_classes = [IsAuthor]
+    permission_classes = (permissions.IsAdminUser,)
+    queryset = StudentAccount.objects.all()
+    serializer_class = StudentAccountSerializer
+    lookup_field = 'slug'
+    lookup_url_kwarg = 'slug'

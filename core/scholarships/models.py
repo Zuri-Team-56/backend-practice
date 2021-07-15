@@ -10,7 +10,7 @@ class Scholarship(models.Model): # Create new scholarship model
 
     name = models.CharField(max_length=150, help_text='Enter Name of Scholarship', blank=False, unique=True)
     description = models.TextField()
-    slug = AutoSlugField(populate_from='name', blank=True, editable=True)
+    slug = AutoSlugField(populate_from='name', unique=True, blank=True, editable=True)
     image = models.ImageField(null=True, blank=True, upload_to='images/')
     requirements = models.TextField(verbose_name=('Application requirements'))
     snippets = models.CharField(max_length=350)

@@ -1,15 +1,16 @@
-from django.urls import include, path
-from rest_framework import routers
-from . import views
-
-router = routers.DefaultRouter()
-
-router.register(r'careerquestions', views.CareerQuestionViewSet)
-router.register(r'careerquestionanswers', views.CareerQuestionAnswerViewSet)
-router.register(r'careerquestionoptions', views.CareerQuestionOptionViewSet)
+from django.urls import path
+from core.advisor.views import CareerQuestionList, CareerQuestionDetail#,\
+   # CareerQuestionAnswerList, CareerQuestionAnswerDetail,\
+        # CareerQuestionOptionList, CareerQuestionOptionDetail
 
 
-GET_OPTIONS = {'get': 'list'}
+
 urlpatterns = [
-    path('', include(router.urls))
+    # path('answers/', CareerQuestionAnswerList.as_view()), # new
+    # path('answers/<int:pk>/', CareerQuestionAnswerDetail.as_view()), # ne
+    # path('options/', CareerQuestionOptionList.as_view()), # new
+    # path('options/<int:pk>/', CareerQuestionOptionDetail.as_view()), # new
+    path('<int:pk>/', CareerQuestionDetail.as_view()),
+    path('', CareerQuestionList.as_view()),
 ]
+

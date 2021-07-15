@@ -5,7 +5,7 @@ from django.contrib import admin
 from core.savedcourse.models import SavedCourse
 from core.savedscholarship.models import SavedScholarship
 from core.savedschool.models import SavedSchool
-from core.advisor.models import CareerQuestion, CareerQuestionAnswer, CareerQuestionOption
+from core.advisor.models import CareerQuestion
 from core.student.models import StudentAccount
 from core.testimonials.models import Testimonial
 from core.news.models import News
@@ -21,7 +21,8 @@ from core.scholarships.models import Scholarship
 from core.requirement.models import Requirements
 from core.fees.models import Tuition
 from core.programs.models import Program
-   
+from core.careerquestionoption.models import CareerQuestionOption
+from core.careerquestionanswer.models import CareerQuestionAnswer   
 
 
 #poshpeck

@@ -4,6 +4,7 @@ from .models import News
 
 
 class NewsSerializer(serializers.ModelSerializer):
+    school = serializers.SlugRelatedField(read_only=True, slug_field='name')
 
     class Meta:
         model = News

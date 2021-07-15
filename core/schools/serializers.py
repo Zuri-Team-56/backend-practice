@@ -2,19 +2,20 @@ from rest_framework import serializers
 
 from .models import School
 
-from core.courses.serializers import CourseSerializer
+# from core.courses.serializers import CourseSerializer
 from core.programs.serializers import ProgramSerializer
 from core.faculty.serializers import FacultySerializer
 from core.requirement.serializers import RequirementSerializer
 from core.news.serializers import NewsSerializer
+from core.reviews.serializers import ReviewSerializer
 
 class SchoolSerializer(serializers.ModelSerializer):
-    courses = CourseSerializer(many=True, read_only=True)
+    # courses = CourseSerializer(many=True, read_only=True)
     programs = ProgramSerializer(many=True, read_only=True)
     faculty = FacultySerializer(many=True, read_only=True)
     requirement = RequirementSerializer(many=True, read_only=True)
     news = NewsSerializer(many=True, read_only=True)
-
+    reviews = ReviewSerializer(many=True, read_only=True)
 
     class Meta:
         model = School
@@ -31,15 +32,14 @@ class SchoolSerializer(serializers.ModelSerializer):
             'world_ranking',
             'number_of_students',
             'tuition', 
-            'courses',       #ForeignKeyRelatedName        
+            # 'courses',       #ForeignKeyRelatedName        
             'financial_aid',
             'hostel',
             'has_hostel',
             'location',
             'news',         #ForeignKeyRelatedName
-            #'saved_school'
             'website',
-            'reviews',
+            'reviews',      #ForeignKeyRelatedName
             
       
         ]

@@ -24,5 +24,6 @@ class Review(models.Model):
     date = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return self.review
+        # return self.review
+        return f"{self.author} {self.review}"
 

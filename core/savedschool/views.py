@@ -1,14 +1,18 @@
-from rest_framework import viewsets
-from django.contrib.auth.models import User
-from .serializers import SavedSchoolSerializer
-
-from .models import SavedSchool
-
-from rest_framework.permissions import IsAuthenticated
+from rest_framework import generics, permissions
+from core.savedschool.models import SavedSchool
+from core.savedschool.serializers import SavedSchoolSerializer
+from .permissions import IsAuthor
 
 
-class SavedSchoolViewSet(viewsets.ModelViewSet):
-    queryset = SavedSchool.objects.all().order_by('school')
+class SavedSchoolList(generics.ListCreateAPIView):
+    permission_classes = [IsAuthor]
+    permission_classes = (permissions.IsAdminUser,)
+    queryset = SavedSchool.objects.all()
     serializer_class = SavedSchoolSerializer
 
 
+class SavedSchoolDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthor]
+    permission_classes = (permissions.IsAdminUser,)
+    queryset = SavedSchool.objects.all()
+    serializer_class = SavedSchoolSerializer

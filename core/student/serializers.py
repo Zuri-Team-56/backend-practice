@@ -1,24 +1,33 @@
-from django.db.models.query import QuerySet
+from core.savedschool.serializers import SavedSchoolSerializer
+from core.savedscholarship.serializers import SavedScholarshipSerializer
+from core.savedcourse.serializers import SavedCourseSerializer
 from rest_framework import serializers
-from .models import StudentAccount
-from django.contrib.auth.models import User
+from core.student.models import StudentAccount
 
-
-
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ('__all__')
-
-
-class StudentAccountSerializer(serializers.HyperlinkedModelSerializer):
-    user_obj = User.objects.all()
-
-    user = serializers.HyperlinkedRelatedField(
-        view_name='user-detail',
-        queryset = user_obj
-    )
-
+class StudentAccountSerializer(serializers.ModelSerializer):
+    savedcourse = SavedCourseSerializer(many=True, read_only=True)
+    savedscholarship = SavedScholarshipSerializer(many=True, read_only=True)
+    savedschool = SavedSchoolSerializer(many=True, read_only=True)
+    
     class Meta:
         model = StudentAccount
-        fields = ('__all__')
+        fields = [
+            'user',
+            'image',
+            'first_name',
+            'last_name',
+            'slug',
+            'telephone',
+            'mobile',
+            'gender',
+            'email',
+            'educational_level',
+            'country',
+            'state',
+            'savedcourse',
+            'savedschool',
+            'savedscholarship'
+        ]
+        extra_kwargs = {
+            'image': {'required': False}
+        }

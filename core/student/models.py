@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.deletion import CASCADE
+from django.utils.text import slugify
 from django.utils.translation import ugettext as _
 
 
@@ -260,10 +261,11 @@ COUNTRIES = (
 
 
 class StudentAccount(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='student_accounts')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='student')
     image = models.ImageField(upload_to='images')
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=255, unique=True, blank=True, editable=True)
     telephone = models.CharField(max_length=255)
     mobile = models.CharField(max_length=255)
     gender = models.CharField(max_length=50, choices=GENDER)
@@ -274,10 +276,18 @@ class StudentAccount(models.Model):
 
     @property
     def full_name(self):
-        return f"{self.user.first_name} {self.user.last_name}"
+        return f"{self.first_name} {self.last_name}"
 
     def __str__(self):
-        # return self.user.first_name 
-        return self.first_name + ' ' + self.last_name
+        # return ('%s %s' % (self.first_name, self.last_name))
+        return f'{self.first_name} {self.last_name}'
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.first_name +'-'+ self.last_name)
+        super(StudentAccount, self).save(*args, **kwargs)
+
+    
+
+    
 
 

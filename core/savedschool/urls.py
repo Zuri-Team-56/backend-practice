@@ -1,12 +1,10 @@
-from django.urls import include, path
-from rest_framework import routers
-from . import views
+from django.urls import path
+from core.savedschool.views import SavedSchoolList, SavedSchoolDetail
 
-router = routers.DefaultRouter()
-router.register(r'savedschools', views.SavedSchoolViewSet)
 
-GET_OPTIONS = {'get': 'list'}
 
 urlpatterns = [
-    path('', include(router.urls))
+    
+    path('<slug:slug>/savedschool/<pk>', SavedSchoolDetail.as_view()),
+    path('<slug:slug>/savedschool', SavedSchoolList.as_view()),
 ]

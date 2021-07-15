@@ -6,6 +6,9 @@ from core.fees.serializers import TuitionSerializer
 
 class CourseSerializer(serializers.ModelSerializer):
     fees = TuitionSerializer(many=True, read_only=True)
+    school_name = serializers.SlugRelatedField(read_only=True, slug_field='name')
+    program = serializers.SlugRelatedField(read_only=True, slug_field='name')
+    name_of_department = serializers.SlugRelatedField(read_only=True, slug_field='name')
 
     class Meta:
         model = Course

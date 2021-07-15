@@ -1,3 +1,4 @@
+from core.articles.models import Article
 from django.shortcuts import render
 from django.http import Http404
 
@@ -10,7 +11,6 @@ from rest_framework import status
 from .serializers import CommentSerializer
 from .models import Comment
 from .permissions import IsOwnerOrReadOnly
-
 
 class CommentList(ListCreateAPIView):
     

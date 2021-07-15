@@ -1,12 +1,18 @@
-from rest_framework import viewsets
-from django.contrib.auth.models import User
-from .serializers import SavedCourseSerializer
-
-from .models import SavedCourse
-
-from rest_framework.permissions import IsAuthenticated
+from rest_framework import generics, permissions
+from core.savedcourse.models import SavedCourse
+from core.savedcourse.serializers import SavedCourseSerializer
+from .permissions import IsAuthor
 
 
-class SavedCourseViewSet(viewsets.ModelViewSet):
-    queryset = SavedCourse.objects.all().order_by('course')
+class SavedCourseList(generics.ListCreateAPIView):
+    permission_classes = [IsAuthor]
+    permission_classes = (permissions.IsAdminUser,)
+    queryset = SavedCourse.objects.all()
+    serializer_class = SavedCourseSerializer
+
+
+class SavedCourseDetail(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthor]
+    permission_classes = (permissions.IsAdminUser,)
+    queryset = SavedCourse.objects.all()
     serializer_class = SavedCourseSerializer

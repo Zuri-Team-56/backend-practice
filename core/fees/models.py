@@ -15,7 +15,7 @@ PROGRAM_TYPES = (
 class Tuition(models.Model):
  
     title = models.CharField(max_length=200, null=True, blank=True)
-    slug = AutoSlugField(populate_from='title', blank=True, editable=True)
+    slug = AutoSlugField(populate_from='title', unique=True, blank=True, editable=True)
     course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="fees")
     program = models.CharField(max_length=200, choices=PROGRAM_TYPES)
     description = models.TextField()
