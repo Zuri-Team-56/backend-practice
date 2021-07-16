@@ -5,11 +5,11 @@ from core.comments import views
 app_name = 'comments'
 
 urlpatterns = [
-    # path('', views.CommentList.as_view(), name='list'),
-    # path('<pk>/', views.CommentDetail.as_view(), name='detail'),
+    path('', views.CommentList.as_view(), name='list'),
+    path('<pk>/', views.CommentDetail.as_view(), name='detail'),
 
-    path('<slug:slug>/comments', views.CommentList.as_view(), name='list'),
-    path('<slug:slug>/comments/<pk>', views.CommentDetail.as_view(), name='detail'),
+    # path('<slug:slug>/comments', views.CommentList.as_view(), name='list'),
+    # path('<slug:slug>/comments/<pk>', views.CommentDetail.as_view(), name='detail'),
 
 ]
 
