@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404
-from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser 
+from core.permissions import UserAdmin
+from rest_framework.permissions import AllowAny
 
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.response import Response
@@ -19,7 +20,7 @@ class NewsList(ListCreateAPIView):
         if self.request.method == 'GET':
             permission_classes = [AllowAny]
         else:
-            permission_classes = [IsAdminUser]
+            permission_classes = [UserAdmin]
         return [permission() for permission in permission_classes]
 
 
@@ -34,5 +35,5 @@ class NewsDetail(RetrieveUpdateDestroyAPIView):
         if self.request.method == 'GET':
             permission_classes = [AllowAny]
         else:
-            permission_classes = [IsAdminUser]
+            permission_classes = [UserAdmin]
         return [permission() for permission in permission_classes]
